@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="cell">
+    <!-- soma -->
+    <include href="na_s.channel.nml"/>
+    <include href="kdr.channel.nml"/>
+    <include href="k.channel.nml"/>
+    <include href="cal.channel.nml"/>
+
+    <!-- dend -->
+    <include href="cah.channel.nml"/>
+    <include href="kca.channel.nml"/>
+    <include href="h.channel.nml"/>
+    <include href="ca.nml"/>
+
+    <!-- axon -->
+    <include href="na_a.channel.nml"/>
+    <include href="leak.channel.nml"/>
+
+<!--
+% Cell morphology
+% p1     = 0.25;        % Cell surface ratio soma/dendrite
+% p2     = 0.15;        % Cell surface ratio axon(hillock)/soma
+% g_int  = 0.13;        % Cell internal conductance  
+
+Adend = ldend*pi*Rdendˆ2
+Asoma = lsoma*pi*Rsomaˆ2
+
+.25 = ldend*RDendˆ2 / lsoma*pi*Rsomaˆ2
+
+assume Rdend = 1;
+assume Rsoma = 20;
+assume lsoma = 20;
+4*1*ldend = lsoma*Rsomaˆ2
+4*1*ldend = 10*400
+ldend = 1000
+
+assume lsoma = 20;
+ldend = 2250;
+
+Raxon = 20;
+.15 = laxon*20ˆ2 / 20*20ˆ2
+
+20 * .15 = laxon = 3;
+-->
+
+
+    <cell id="cell">
+
+        <notes>Olives!</notes>
+
+        <morphology id="morphology">
+
+            <segment id="0" name="soma">
+                <proximal x="0.0" y="0.0" z="0.0" diameter="40.0"/>
+                <distal x="0.0" y="0.0" z="20.0" diameter="40"/>
+            </segment>
+
+            <segment id="1" name="dend">
+                <parent segment="0"/>
+                <proximal x="0.0" y="0.0" z="20" diameter="1.0"/>
+                <distal x="0.0" y="0.0" z="1020.0" diameter="1.0"/>
+            </segment>
+
+            <segment id="2" name="axon">
+                <parent segment="0" fractionAlong="0"/>
+                <proximal x="0.0" y="0.0" z="0.0" diameter="22.5"/>
+                <distal x="0.0" y="0.0" z="3" diameter="40"/>
+            </segment>
+
+
+            <segmentGroup id="soma" neuroLexId="sao864921383">    
+                <member segment="0"/>
+            </segmentGroup>
+
+            <segmentGroup id="dend" neuroLexId="sao864921383">    
+                <member segment="1"/>
+            </segmentGroup>
+
+            <segmentGroup id="axon" neuroLexId="sao864921383">    
+                <member segment="2"/>
+            </segmentGroup>
+
+
+            <segmentGroup id="soma_group" neuroLexId="GO:0043025">    
+                <include segmentGroup="soma"/>
+            </segmentGroup>
+
+            <segmentGroup id="dend_group" neuroLexId="GO:0030425">    
+                <include segmentGroup="dend"/>
+            </segmentGroup>
+
+            <segmentGroup id="axon_group" neuroLexId="GO:0030424">    
+                <include segmentGroup="axon"/>
+            </segmentGroup>
+
+            <segmentGroup id="all">    
+                <include segmentGroup="soma"/>
+                <include segmentGroup="dend"/>
+                <include segmentGroup="axon"/>
+            </segmentGroup>
+
+        </morphology>
+
+        <!-- Adding the biophysical parameters -->
+
+        <biophysicalProperties id="biophys">
+
+            <membraneProperties>
+                <!-- soma -->
+                <channelDensity condDensity="150 mS_per_cm2" id="na_s_soma" segmentGroup="soma_group" ionChannel="na_s" ion="na" erev="55 mV"/>
+                <channelDensity condDensity="9 mS_per_cm2" id="kdr_soma" segmentGroup="soma_group" ionChannel="kdr" ion="k" erev="-75 mV"/>
+                <channelDensity condDensity="5 mS_per_cm2" id="k_soma" 
+                segmentGroup="soma_group" ionChannel="k" ion="k" erev="-75 mV"/>
+                
+                <!-- dendrite -->
+                <channelDensity condDensity="5.5 mS_per_cm2" id="cal_dend" segmentGroup="soma_group" ionChannel="cal" ion="cal" erev="120 mV"/>
+                <channelDensity condDensity="4.5 mS_per_cm2" id="cah_dend" segmentGroup="dend_group" ionChannel="cah" ion="ca" erev="120 mV"/>
+                <channelDensity condDensity="45 mS_per_cm2" id="kca_dend" segmentGroup="dend_group" ionChannel="kca" ion="k" erev="-75 mV"/>
+                <channelDensity condDensity="0.12 mS_per_cm2" id="h_dend" segmentGroup="dend_group" ionChannel="h" ion="k" erev="-43 mV"/>
+
+                <!-- axon -->
+                <channelDensity condDensity="240 mS_per_cm2" id="na_axon" segmentGroup="axon_group" ionChannel="na_a" ion="na" erev="55 mV"/>
+                <channelDensity condDensity="240 mS_per_cm2" id="k_axon" segmentGroup="axon_group" ionChannel="k" ion="k" erev="-75 mV"/>
+
+                <channelDensity condDensity="1.5e-2 mS_per_cm2" id="leak_all" segmentGroup="all" ionChannel="leak" ion="_leak" erev="10 mV"/>
+                
+                <spikeThresh value="0 mV"/>
+                <specificCapacitance value="1 uF_per_cm2"/>
+                <initMembPotential value="-60.0 mV"/>
+
+            </membraneProperties>
+
+
+            <intracellularProperties>
+                <species segmentGroup="dend_group" id="ca" ion="ca" concentrationModel="ca_conc" initialConcentration="3.7152 mM" initialExtConcentration="3.0mM"/>
+
+                <resistivity value=".1 ohm_cm" segmentGroup="soma_group"/>
+                <resistivity value="3 ohm_cm" segmentGroup="dend_group"/>
+                <resistivity value="3 ohm_cm" segmentGroup="axon_group"/>
+            </intracellularProperties>
+
+        </biophysicalProperties>
+
+    </cell>
+
+</neuroml>
