@@ -1,0 +1,5 @@
+This is a binary distribution of the jNeuroML utility.
+
+it can be run with: ./jnml (Linux/Mac) or jnml.bat (Windows)
+
+See https://github.com/NeuroML/jNeuroML for sources/more information.

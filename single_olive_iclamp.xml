@@ -33,12 +33,19 @@
 
   <!--Note: this could be: Simulation id="sim1" ... , but Component type="Simulation" ...
   is used to allow validation of this file according to the LEMS schema specified above...-->
-  <Component type="Simulation" id="sim1" length="1000 ms" step="0.025 ms" target="net">
+  <Component type="Simulation" id="sim1" length="2000 ms" step="0.025 ms" target="net">
     <Display id="d1" title="voltage"  xmin="0" xmax="1000" ymin="-100.0" ymax="100" timeScale="1ms">
         <Line id="Vm - soma" timeScale="1ms" quantity="pop/0/cell/0/v" scale="1 mV" color="#e41a1c"/>
         <Line id="Vm - dend" timeScale="1ms" quantity="pop/0/cell/1/v" scale="1 mV" color="#4daf4a"/>
         <Line id="Vm - axon" timeScale="1ms" quantity="pop/0/cell/2/v" scale="1 mV" color="#377eb8"/>
     </Display>
+
+  <Display id="d2" title="Calcium"  xmin="0" xmax="1000" ymin="-10.0" ymax="10" timeScale="1ms">
+        <Line id="Ca - soma" timeScale="1ms" quantity="pop/0/cell/0/ca_conc" scale=".1 mM" color="#e41a1c"/>
+        <Line id="Ca - dend" timeScale="1ms" quantity="pop/0/cell/1/ca_conc" scale=".1 mM" color="#e41a1c"/>
+        
+    </Display>
+
 
     <OutputFile id="outf" fileName="single_olive_iclamp.dat">
         <OutputColumn id="v" quantity="pop/0/cell/0/v"/>

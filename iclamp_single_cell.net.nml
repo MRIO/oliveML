@@ -3,7 +3,7 @@
   <include href="olive.cell.nml"/>
 
   <!--<pulseGenerator id="iclamp0" delay="600 ms" duration="200 ms" amplitude="-1 uA"/>-->
-  <pulseGenerator id="iclamp0" delay="600 ms" duration="200 ms" amplitude="0 nA"/>
+  <pulseGenerator id="iclamp0" delay="1000 ms" duration="200 ms" amplitude="-.3 nA"/>
 
   <network id="net" type="networkWithTemperature" temperature="35 degC">
 
@@ -14,7 +14,7 @@
     </population>
 
     <inputList id="Clamps" component="iclamp0" population="pop">
-        <input id="0" target="../pop/0/cell" segmentId="2" destination="synapses"/> <!-- iclamp into iseg -->
+        <input id="0" target="../pop/0/cell" segmentId="0" destination="synapses"/> <!-- iclamp into iseg -->
     </inputList>
 
   </network>
