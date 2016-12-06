@@ -63,8 +63,8 @@ Raxon = 20;
 
             <segment id="2" name="axon">
                 <parent segment="0" fractionAlong="0"/>
-                <proximal x="0.0" y="0.0" z="0.0" diameter="22.5"/>
-                <distal x="0.0" y="0.0" z="3" diameter="40"/>
+                <proximal x="0.0" y="0.0" z="-3.0" diameter="40"/>
+                <distal x="0.0" y="0.0" z="-6" diameter="22"/>
             </segment>
 
 
