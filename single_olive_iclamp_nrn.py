@@ -113,16 +113,6 @@ class NeuronSimulation():
         # Line, plotting: pop/0/cell/2/v
         self.display_d1.addexpr("a_pop[0].axon.v(0.5)", "a_pop[0].axon.v(0.5)", 3, 1, 0.8, 0.9, 2)
 
-        # Display: self.display_d2
-        self.display_d2 = h.Graph(0)
-        self.display_d2.size(0,h.tstop,-80.0,50.0)
-        self.display_d2.view(0, -80.0, h.tstop, 130.0, 80, 330, 330, 250)
-        h.graphList[0].append(self.display_d2)
-        # Line, plotting: pop/0/cell/0/ca_conc
-        self.display_d2.addexpr("a_pop[0].soma.ca_conc(0.5)", "a_pop[0].soma.ca_conc(0.5)", 1, 1, 0.8, 0.9, 2)
-        # Line, plotting: pop/0/cell/1/ca_conc
-        self.display_d2.addexpr("a_pop[0].dend.ca_conc(0.5)", "a_pop[0].dend.ca_conc(0.5)", 2, 1, 0.8, 0.9, 2)
-
 
 
         # File to save: outf
@@ -192,7 +182,6 @@ class NeuronSimulation():
         if self.sim_end < 0: self.sim_end = time.time()
 
         self.display_d1.exec_menu("View = plot")
-        self.display_d2.exec_menu("View = plot")
 
         # File to save: time
         py_v_time = [ t/1000 for t in h.v_time.to_python() ]  # Convert to Python list for speed...

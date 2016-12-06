@@ -1,0 +1,9 @@
+x86_64/*
+*.gv
+*.dat
+*.sublime*
+*.mod
+*.hoc
+~*
+
+.ipynb_checkpoints/Explorations-checkpoint.ipynb
