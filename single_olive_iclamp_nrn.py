@@ -31,7 +31,7 @@ Components:
     null (Type: include)
     cell (Type: cell)
     null (Type: include)
-    iclamp0 (Type: pulseGenerator:  delay=1.0 (SI time) duration=0.2 (SI time) amplitude=-3.0E-10 (SI current))
+    iclamp0 (Type: pulseGenerator:  delay=0.5 (SI time) duration=0.2 (SI time) amplitude=-3.0E-10 (SI current))
     net (Type: networkWithTemperature:  temperature=308.15 (SI temperature))
     sim1 (Type: Simulation:  length=2.0 (SI time) step=2.5E-5 (SI time))
 

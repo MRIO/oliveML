@@ -12,10 +12,6 @@
         <location x="0" y="0" z="0"/>
       </instance>
 
-      <instance id="1">
-        <location x="100" y="0" z="0"/>
-      </instance>
-
     </population>
 
     <inputList id="Clamps" component="iclamp0" population="pop">

@@ -1,3 +1,6 @@
+rm -rfv *.mod
+rm -rfv x86_64 
+
 (cd ..; ./jnml olive_tree/single_olive_iclamp.xml -neuron)
 nrnivmodl;
 nrniv -python single_olive_iclamp_nrn.py
