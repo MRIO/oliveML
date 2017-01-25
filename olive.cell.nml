@@ -113,7 +113,7 @@ Raxon = 20;
                 segmentGroup="soma_group" ionChannel="k" ion="k" erev="-75 mV"/>
                 
                 <!-- dendrite -->
-                <channelDensity condDensity="5.5 mS_per_cm2" id="cal_dend" segmentGroup="soma_group" ionChannel="cal" ion="cal" erev="120 mV"/>
+                <channelDensity condDensity="5.5 mS_per_cm2" id="cal_dend" segmentGroup="dendrite_group" ionChannel="cal" ion="cal" erev="120 mV"/>
                 <channelDensity condDensity="4.5 mS_per_cm2" id="cah_dend" segmentGroup="dendrite_group" ionChannel="cah" ion="ca" erev="120 mV"/>
                 <channelDensity condDensity="45 mS_per_cm2" id="kca_dend" segmentGroup="dendrite_group" ionChannel="kca" ion="k" erev="-75 mV"/>
                 <channelDensity condDensity="0.12 mS_per_cm2" id="h_dend" segmentGroup="dendrite_group" ionChannel="h" ion="k" erev="-43 mV"/>
