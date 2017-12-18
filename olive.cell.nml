@@ -27,12 +27,13 @@ Asoma = lsoma*pi*Rsomaˆ2
 
 .25 = ldend*RDendˆ2 / lsoma*pi*Rsomaˆ2
 
-assume Rdend = 1;
+assume Rdend = 10;
 assume Rsoma = 20;
 assume lsoma = 20;
+assume ldend = 200
 4*1*ldend = lsoma*Rsomaˆ2
 4*1*ldend = 10*400
-ldend = 1000
+
 
 assume lsoma = 20;
 ldend = 2250;
@@ -51,19 +52,19 @@ Raxon = 20;
         <morphology id="morphology">
 
             <segment id="0" name="soma">
-                <proximal x="0.0" y="0.0" z="0.0" diameter="40.0"/>
-                <distal x="0.0" y="0.0" z="20.0" diameter="40"/>
+                <proximal x="0.0" y="0.0" z="0.0" diameter="20.0"/>
+                <distal x="0.0" y="0.0" z="20.0" diameter="20"/>
             </segment>
 
             <segment id="1" name="dend">
                 <parent segment="0"/>
-                <proximal x="0.0" y="0.0" z="20" diameter="1.0"/>
-                <distal x="0.0" y="0.0" z="1020.0" diameter="1.0"/>
+                <proximal x="0.0" y="0.0" z="20" diameter="10.0"/>
+                <distal x="0.0" y="0.0" z="320.0" diameter="1.0"/>
             </segment>
 
             <segment id="2" name="axon">
                 <parent segment="0" fractionAlong="0"/>
-                <proximal x="0.0" y="0.0" z="-3.0" diameter="40"/>
+                <proximal x="0.0" y="0.0" z="-3.0" diameter="20"/>
                 <distal x="0.0" y="0.0" z="-6" diameter="22"/>
             </segment>
 

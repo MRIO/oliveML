@@ -115,6 +115,13 @@ class NeuronSimulation():
 
 
 
+        # File to save: time
+        # Column: time
+        h(' objectvar v_time ')
+        h(' { v_time = new Vector() } ')
+        h(' { v_time.record(&t) } ')
+        h.v_time.resize((h.tstop * h.steps_per_ms) + 1)
+
         # File to save: outf
         # Column: pop/0/cell/0/v
         h(' objectvar v_v_outf ')
@@ -136,13 +143,6 @@ class NeuronSimulation():
         h(' { v_v_outf___ = new Vector() } ')
         h(' { v_v_outf___.record(&a_pop[0].dend.cai(0.5)) } ')
         h.v_v_outf___.resize((h.tstop * h.steps_per_ms) + 1)
-
-        # File to save: time
-        # Column: time
-        h(' objectvar v_time ')
-        h(' { v_time = new Vector() } ')
-        h(' { v_time.record(&t) } ')
-        h.v_time.resize((h.tstop * h.steps_per_ms) + 1)
 
         self.initialized = False
 
