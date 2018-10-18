@@ -3,7 +3,7 @@
   <include href="olive.cell.nml"/>
 
   <!--<pulseGenerator id="iclamp0" delay="600 ms" duration="200 ms" amplitude="-1 uA"/>-->
-  <pulseGenerator id="iclamp0" delay="500 ms" duration="200 ms" amplitude="-.3 nA"/>
+  <pulseGenerator id="iclamp0" delay="500 ms" duration="200 ms" amplitude="-1 nA"/>
 
   <network id="net" type="networkWithTemperature" temperature="35 degC">
 
