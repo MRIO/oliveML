@@ -14,6 +14,8 @@
 
     <!-- axon -->
     <include href="na_a.channel.nml"/>
+
+    <!-- all  -->
     <include href="leak.channel.nml"/>
 
 <!--
@@ -56,16 +58,34 @@ Raxon = 20;
                 <distal x="0.0" y="0.0" z="20.0" diameter="20"/>
             </segment>
 
-            <segment id="1" name="dend">
+            <segment id="10" name="dend">
                 <parent segment="0"/>
-                <proximal x="0.0" y="0.0" z="20" diameter="10.0"/>
-                <distal x="0.0" y="0.0" z="320.0" diameter="1.0"/>
+                <proximal x="10.0" y="0.0" z="0.0" diameter="3.0"/>
+                <distal x="310.0" y="0.0" z="0.0" diameter="1.0"/>
+            </segment>
+
+            <segment id="11" name="dend">
+                <parent segment="0"/>
+                <proximal x="0.0" y="10.0" z="0" diameter="3.0"/>
+                <distal x="0.0" y="310.0" z="0.0" diameter="1.0"/>
+            </segment>
+
+            <segment id="12" name="dend">
+                <parent segment="0"/>
+                <proximal x="0.0" y="-10.0" z="0" diameter="3.0"/>
+                <distal x="0.0" y="-310.0" z="0" diameter="1.0"/>
+            </segment>
+
+            <segment id="13" name="dend">
+                <parent segment="0"/>
+                <proximal x="-10.0" y="0.0" z="0" diameter="3.0"/>
+                <distal x="-310.0" y="0.0" z="0.0" diameter="1.0"/>
             </segment>
 
             <segment id="2" name="axon">
                 <parent segment="0" fractionAlong="0"/>
-                <proximal x="0.0" y="0.0" z="-3.0" diameter="20"/>
-                <distal x="0.0" y="0.0" z="-6" diameter="22"/>
+                <proximal x="0.0" y="0.0" z="-3.0" diameter="1"/>
+                <distal x="0.0" y="0.0" z="-7.0" diameter="1"/>
             </segment>
 
 
@@ -74,7 +94,10 @@ Raxon = 20;
             </segmentGroup>
 
             <segmentGroup id="dend" neuroLexId="sao864921383">    
-                <member segment="1"/>
+                <member segment="10"/>
+                <member segment="11"/>
+                <member segment="12"/>
+                <member segment="13"/>
             </segmentGroup>
 
             <segmentGroup id="axon" neuroLexId="sao864921383">    
@@ -108,26 +131,28 @@ Raxon = 20;
 
             <membraneProperties>
                 <!-- soma -->
-                <channelDensity condDensity="150 mS_per_cm2" id="na_s_soma" segmentGroup="soma_group" ionChannel="na_s" ion="na" erev="55 mV"/>
-                <channelDensity condDensity="9 mS_per_cm2" id="kdr_soma" segmentGroup="soma_group" ionChannel="kdr" ion="k" erev="-75 mV"/>
-                <channelDensity condDensity="5 mS_per_cm2" id="k_soma" 
-                segmentGroup="soma_group" ionChannel="k" ion="k" erev="-75 mV"/>
-                
-                <!-- dendrite -->
-                <channelDensity condDensity="5.5 mS_per_cm2" id="cal_dend" segmentGroup="dendrite_group" ionChannel="cal" ion="cal" erev="120 mV"/>
-                <channelDensity condDensity="4.5 mS_per_cm2" id="cah_dend" segmentGroup="dendrite_group" ionChannel="cah" ion="ca" erev="120 mV"/>
-                <channelDensity condDensity="45 mS_per_cm2" id="kca_dend" segmentGroup="dendrite_group" ionChannel="kca" ion="k" erev="-75 mV"/>
-                <channelDensity condDensity="0.12 mS_per_cm2" id="h_dend" segmentGroup="dendrite_group" ionChannel="h" ion="k" erev="-43 mV"/>
+                <channelDensity condDensity="30 mS_per_cm2" id="na_s_soma" segmentGroup="soma_group" ionChannel="na_s" ion="na" erev="55 mV"/>
+                <channelDensity condDensity="30 mS_per_cm2" id="kdr_soma" segmentGroup="soma_group" 
+                ionChannel="kdr" ion="k" erev="-75 mV"/>
+                <channelDensity condDensity="15 mS_per_cm2" id="k_soma" segmentGroup="soma_group"
+                ionChannel="k" ion="k" erev="-75 mV"/>
+                <channelDensity condDensity="20 mS_per_cm2" id="cal_soma" segmentGroup="soma_group"
+                ionChannel="cal" ion="cal" erev="120 mV"/>
+
+                <!-- dendrite 10 35 25--> 
+                <channelDensity condDensity="10 mS_per_cm2" id="cah_dend" segmentGroup="dendrite_group" ionChannel="cah" ion="ca" erev="120 mV"/>
+                <channelDensity condDensity="35 mS_per_cm2" id="kca_dend" segmentGroup="dendrite_group" ionChannel="kca" ion="k" erev="-75 mV"/>
+                <channelDensity condDensity="25 mS_per_cm2" id="h_dend" segmentGroup="dendrite_group" ionChannel="h" ion="k" erev="-43 mV"/>
 
                 <!-- axon -->
-                <channelDensity condDensity="240 mS_per_cm2" id="na_axon" segmentGroup="axon_group" ionChannel="na_a" ion="na" erev="55 mV"/>
-                <channelDensity condDensity="240 mS_per_cm2" id="k_axon" segmentGroup="axon_group" ionChannel="k" ion="k" erev="-75 mV"/>
+                <channelDensity condDensity="200 mS_per_cm2" id="na_axon" segmentGroup="axon_group" ionChannel="na_a" ion="na" erev="55 mV"/>
+                <channelDensity condDensity="200 mS_per_cm2" id="k_axon" segmentGroup="axon_group" ionChannel="k" ion="k" erev="-75 mV"/>
 
-                <channelDensity condDensity="1.5e-2 mS_per_cm2" id="leak_all" segmentGroup="all" ionChannel="leak" ion="_leak" erev="10 mV"/>
+                <channelDensity condDensity="1.3e-2 mS_per_cm2" id="leak_all" segmentGroup="all" ionChannel="leak" ion="_leak" erev="10 mV"/>
                 
                 <spikeThresh value="0 mV"/>
                 <specificCapacitance value="1 uF_per_cm2"/>
-                <initMembPotential value="-60.0 mV"/>
+                <initMembPotential value="-65.0 mV"/>
 
             </membraneProperties>
 
@@ -136,8 +161,8 @@ Raxon = 20;
                 <species segmentGroup="dendrite_group" id="ca" ion="ca" concentrationModel="ca_conc" initialConcentration="3.7152 mM" initialExtConcentration="3.0mM"/>
 
                 <resistivity value=".1 ohm_cm" segmentGroup="soma_group"/>
-                <resistivity value="3 ohm_cm" segmentGroup="dendrite_group"/>
-                <resistivity value="3 ohm_cm" segmentGroup="axon_group"/>
+                <resistivity value=".1 ohm_cm" segmentGroup="dendrite_group"/>
+                <resistivity value=".1 ohm_cm" segmentGroup="axon_group"/>
             </intracellularProperties>
 
         </biophysicalProperties>

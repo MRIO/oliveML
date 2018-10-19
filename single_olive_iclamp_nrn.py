@@ -32,7 +32,7 @@ Components:
     cell (Type: cell)
     null (Type: include)
     iclamp0 (Type: pulseGenerator:  delay=0.5 (SI time) duration=0.2 (SI time) amplitude=-3.0E-10 (SI current))
-    net (Type: networkWithTemperature:  temperature=308.15 (SI temperature))
+    net (Type: networkWithTemperature:  temperature=300.15 (SI temperature))
     sim1 (Type: Simulation:  length=2.0 (SI time) step=2.5E-5 (SI time))
 
 
@@ -58,10 +58,10 @@ class NeuronSimulation():
 
         print("\n    Starting simulation in NEURON generated from NeuroML2 model...\n")
 
-        # Adding simulation Component(id=sim1 type=Simulation) of network/component: net (Type: networkWithTemperature:  temperature=308.15 (SI temperature))
+        # Adding simulation Component(id=sim1 type=Simulation) of network/component: net (Type: networkWithTemperature:  temperature=300.15 (SI temperature))
 
-        # Temperature used for network: 308.15 K
-        h.celsius = 308.15 - 273.15
+        # Temperature used for network: 300.15 K
+        h.celsius = 300.15 - 273.15
 
         print("Population pop contains 1 instance(s) of component: cell of type: cell")
 
