@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<Lems xmlns="http://www.neuroml.org/lems/0.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2  https://raw.github.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
+
+  <Target component="sim1" reportFile="simulator.props" timesFile="time.dat"/>
+
+  <!--Include standard NeuroML 2 ComponentType definitions-->
+  <Include file="Cells.xml"/>
+  <Include file="Networks.xml"/>
+  <Include file="Simulation.xml"/>
+
+  <!-- Channel/synapse files-->
+  <Include file="na_s.channel.nml"/>
+  <Include file="kdr.channel.nml"/>
+  <Include file="k.channel.nml"/>
+  <Include file="cal.channel.nml"/>
+  <Include file="leak.channel.nml"/>
+  <Include file="ExpTime.nml"/>
+
+  <!-- dend -->
+  <Include file="cah.channel.nml"/>
+  <Include file="kca.channel.nml"/>
+  <Include file="h.channel.nml"/>
+  <Include file="ca.nml"/>
+
+  <!-- axon -->
+  <Include file="na_a.channel.nml"/>
+
+  <!--   Cell files-->
+  <Include file="olive.cell.nml"/>
+
+  <!--   Network file-->
+  <Include file="iclamp_single_cell.net.nml"/>
+
+  <!--Note: this could be: Simulation id="sim1" ... , but Component type="Simulation" ...
+  is used to allow validation of this file according to the LEMS schema specified above...-->
+  <Component type="Simulation" id="sim1" length="3000 ms" step="0.025 ms" target="net">
+    <Display id="d1" title="voltage"  xmin="0" xmax="3000" ymin="-90.0" ymax="30" timeScale="1ms">
+        <Line id="Vm - soma" timeScale="1ms" quantity="pop/0/cell/0/v" scale="1 mV" color="#e41a1c"/>
+        <Line id="Vm - dend" timeScale="1ms" quantity="pop/0/cell/1/v" scale="1 mV" color="#4daf4a"/>
+        <Line id="Vm - axon" timeScale="1ms" quantity="pop/0/cell/2/v" scale="1 mV" color="#377eb8"/>
+    </Display>
+
+
+    <Display id="d2" title="activations"  xmin="0" xmax="3000" ymin="0" ymax="10" timeScale="1ms">
+        <Line id="kcal_k_line" quantity="pop/0/cell/biophys/membraneProperties/cal_soma/cal/k/q" scale="1" color="#e41a1c"/>
+    </Display>
+
+    
+    <OutputFile id="outf" fileName="single_olive_iclamp.dat">
+        <OutputColumn id="v" quantity="pop/0/cell/0/v"/>
+        <OutputColumn id="v" quantity="pop/0/cell/1/v"/>
+        <OutputColumn id="v" quantity="pop/0/cell/2/v"/>
+        <OutputColumn id="v" quantity="pop/0/cell/1/caConc"/>
+      <!--
+      <OutputColumn id="hna_soma" quantity="pop/0/cell/biophys/membraneProperties/na_s_soma/na_s/h/q"/>
+      <OutputColumn id="nk" quantity="pop/0/cell/biophys/membraneProperties/k_soma/k/n/q"/>
+      <OutputColumn id="nkdr" quantity="pop/0/cell/biophys/membraneProperties/kdr_soma/kdr/n/q"/>
+      <OutputColumn id="kcal_k" quantity="pop/0/cell/biophys/membraneProperties/cal_soma/cal/k/q"/>
+      <OutputColumn id="lcal_l" quantity="pop/0/cell/biophys/membraneProperties/cal_soma/cal/l/q"/>
+      <OutputColumn id="ca" quantity="pop/0/cell/caConc"/>
+      <OutputColumn id="ica" quantity="pop/0/cell/iCa"/>
+      <OutputColumn id="zkca" quantity="pop/0/cell/biophys/membraneProperties/kca_dend/kca/z/q"/>
+      <OutputColumn id="rcah" quantity="pop/0/cell/biophys/membraneProperties/cah_dend/cah/r/q"/>
+      <OutputColumn id="hna_axon" quantity="pop/0/cell/biophys/membraneProperties/na_axon/na_a/h/q"/>
+      <OutputColumn id="ncah" quantity="pop/0/cell/biophys/membraneProperties/k_axon/k/n/q"/>
+      -->
+    </OutputFile>
+
+  </Component>
+
+</Lems>

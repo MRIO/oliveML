@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="Ca_conc">
+
+    <fixedFactorConcentrationModel id="ca_conc" restingConc="0.0mM" decayConstant="13.333333333333ms" ion="ca" rho="3e-6 mol_per_cm_per_uA_per_ms"/>
+
+</neuroml>
