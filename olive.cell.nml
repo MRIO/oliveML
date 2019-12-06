@@ -162,9 +162,9 @@ laxon = 66.;
             <intracellularProperties>
                 <species segmentGroup="dendrite_group" id="ca" ion="ca" concentrationModel="ca_conc" initialConcentration="3.7152 mM" initialExtConcentration="3.0mM"/>
 
-                <resistivity value=".110 ohm_cm" segmentGroup="soma_group"/>
-                <resistivity value=".110 ohm_cm" segmentGroup="dendrite_group"/>
-                <resistivity value=".110 ohm_cm" segmentGroup="axon_group"/>
+                <resistivity value=".1 ohm_cm" segmentGroup="soma_group"/>
+                <resistivity value=".1 ohm_cm" segmentGroup="dendrite_group"/>
+                <resistivity value=".1 ohm_cm" segmentGroup="axon_group"/>
             </intracellularProperties>
 
         </biophysicalProperties>
