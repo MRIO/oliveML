@@ -3,9 +3,9 @@
   
   <include href="passive.starfish.olive.cell.nml"/>
 
-  <pulseGenerator id="iclamp0" delay="200 ms" duration="50 ms" amplitude="65 pA"/>
+  <pulseGenerator id="iclamp0" delay="200 ms" duration="50 ms" amplitude="5 pA"/>
 
-  <pulseGenerator id="iclamp1" delay="500 ms" duration="50 ms" amplitude="-65 pA"/>
+  <pulseGenerator id="iclamp1" delay="500 ms" duration="50 ms" amplitude="-5 pA"/>
 
   <network id="net" type="networkWithTemperature" temperature="35 degC">
 

@@ -26,26 +26,29 @@
   <Include file="na_a.channel.nml"/>
 
   <!--   Cell files-->
-  <Include file="olive.cell.nml"/>
+  <!-- <Include file="olive.cell.nml"/> -->
+  <!-- <Include file="active.starfish.olive.cell.nml"/> -->
+  <Include file="passive.starfish.olive.cell.nml"/>
+
 
   <!--   Network file-->
-  <Include file="iclamp_single_cell.net.nml"/>
+  <Include file="iclamp_single_passive_cell.net.nml"/>
 
   <!--Note: this could be: Simulation id="sim1" ... , but Component type="Simulation" ...
   is used to allow validation of this file according to the LEMS schema specified above...-->
-  <Component type="Simulation" id="sim1" length="2000 ms" step="0.025 ms" target="net">
+  <Component type="Simulation" id="sim1" length="1000 ms" step="0.025 ms" target="net">
     <Display id="d1" title="voltage"  xmin="0" xmax="1000" ymin="-100.0" ymax="100" timeScale="1ms">
-        <Line id="Vm - soma" timeScale="1ms" quantity="pop/0/cell/0/v" scale="1 mV" color="#e41a1c"/>
-        <Line id="Vm - dend" timeScale="1ms" quantity="pop/0/cell/1/v" scale="1 mV" color="#4daf4a"/>
-        <Line id="Vm - axon" timeScale="1ms" quantity="pop/0/cell/2/v" scale="1 mV" color="#377eb8"/>
+        <Line id="Vm - soma" timeScale="1ms" quantity="pop/0/passivecell/0/v" scale="1 mV" color="#e41a1c"/>
+        <Line id="Vm - dend" timeScale="1ms" quantity="pop/0/passivecell/1/v" scale="1 mV" color="#4daf4a"/>
+        <Line id="Vm - axon" timeScale="1ms" quantity="pop/0/passivecell/2/v" scale="1 mV" color="#377eb8"/>
     </Display>
 
     
     <OutputFile id="outf" fileName="single_olive_iclamp.dat">
-        <OutputColumn id="v" quantity="pop/0/cell/0/v"/>
-        <OutputColumn id="v" quantity="pop/0/cell/1/v"/>
-        <OutputColumn id="v" quantity="pop/0/cell/2/v"/>
-        <OutputColumn id="v" quantity="pop/0/cell/1/caConc"/>
+        <OutputColumn id="v1" quantity="pop/0/passivecell/0/v"/>
+        <OutputColumn id="v2" quantity="pop/0/passivecell/1/v"/>
+        <OutputColumn id="v3" quantity="pop/0/passivecell/2/v"/>
+        <name />
       <!--
       <OutputColumn id="hna_soma" quantity="pop/0/cell/biophys/membraneProperties/na_s_soma/na_s/h/q"/>
       <OutputColumn id="nk" quantity="pop/0/cell/biophys/membraneProperties/k_soma/k/n/q"/>

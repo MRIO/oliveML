@@ -52,7 +52,7 @@ laxon = 66.;
 -->
 
 
-    <cell id="cell">
+    <cell id="passivecell">
 
         <notes>Olives!</notes>
 
@@ -133,38 +133,21 @@ laxon = 66.;
 
         <biophysicalProperties id="biophys">
 
-            <membraneProperties>
-                <!-- soma -->
-                <channelDensity condDensity="150 mS_per_cm2" id="na_s_soma" segmentGroup="soma_group" ionChannel="na_s" ion="na" erev="55 mV"/>
-                <channelDensity condDensity="9 mS_per_cm2" id="kdr_soma" segmentGroup="soma_group" ionChannel="kdr" ion="k" erev="-75 mV"/>
-                <channelDensity condDensity="5 mS_per_cm2" id="k_soma" 
-                segmentGroup="soma_group" ionChannel="k" ion="k" erev="-75 mV"/>
-                
-                <!-- dendrite -->
-                <channelDensity condDensity="5.5 mS_per_cm2" id="cal_dend" segmentGroup="soma_group" ionChannel="cal" ion="cal" erev="120 mV"/>
-                <channelDensity condDensity="4.5 mS_per_cm2" id="cah_dend" segmentGroup="dendrite_group" ionChannel="cah" ion="ca" erev="120 mV"/>
-                <channelDensity condDensity="45 mS_per_cm2" id="kca_dend" segmentGroup="dendrite_group" ionChannel="kca" ion="k" erev="-75 mV"/>
-                <channelDensity condDensity="0.12 mS_per_cm2" id="h_dend" segmentGroup="dendrite_group" ionChannel="h" ion="k" erev="-43 mV"/>
-
-                <!-- axon -->
-                <channelDensity condDensity="240 mS_per_cm2" id="na_axon" segmentGroup="axon_group" ionChannel="na_a" ion="na" erev="55 mV"/>
-                <channelDensity condDensity="240 mS_per_cm2" id="k_axon" segmentGroup="axon_group" ionChannel="k" ion="k" erev="-75 mV"/>
-
-                <channelDensity condDensity="1.5e-2 mS_per_cm2" id="leak_all" segmentGroup="all" ionChannel="leak" ion="_leak" erev="10 mV"/>
+            <membraneProperties>                
                 
                 <spikeThresh value="0 mV"/>
                 <specificCapacitance value="1 uF_per_cm2"/>
-                <initMembPotential value="-60.0 mV"/>
-
+                <initMembPotential value="-80.0 mV"/>
             </membraneProperties>
 
 
             <intracellularProperties>
                 <species segmentGroup="dendrite_group" id="ca" ion="ca" concentrationModel="ca_conc" initialConcentration="3.7152 mM" initialExtConcentration="3.0mM"/>
 
-                <resistivity value=".110 ohm_cm" segmentGroup="soma_group"/>
-                <resistivity value=".110 ohm_cm" segmentGroup="dendrite_group"/>
-                <resistivity value=".110 ohm_cm" segmentGroup="axon_group"/>
+                <resistivity value="110 ohm_cm" segmentGroup="soma_group"/>
+                <resistivity value="110 ohm_cm" segmentGroup="dendrite_group"/>
+                <resistivity value="
+                    110 ohm_cm" segmentGroup="axon_group"/>
             </intracellularProperties>
 
         </biophysicalProperties>
